@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 /**
- * @api {get} /project/:id Request User information
- * @apiName GetUser
- * @apiGroup User
+ * @api {get} /project/:id Request Project information
+ * @apiName GetProject
+ * @apiGroup Project
  *
- * @apiParam {Number} id Users unique ID.
+ * @apiParam {Number} id Projects unique ID.
  *
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
