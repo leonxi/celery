@@ -14,6 +14,9 @@ var Project = require('../models').Project;
  */
 router.get('/list', function(req, res, next) {
   Project.find(function(err, projects, count) {
+    if (err) {
+      return next(err);
+    }
     res.json(projects);
   });
 });
