@@ -13,6 +13,7 @@ var root = '/' + schema + '/apis/' + projectname;
 var project = require('./routes/project');
 
 app.use(root + '/project', project);
+app.use('/apidoc', express.static('apidoc'));
 
 app.listen(port);
 console.log('Celery APIs on port ' + port);
