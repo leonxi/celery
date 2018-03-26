@@ -15,4 +15,18 @@ router.get('/:id', function(req, res, next) {
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
+/**
+ * @api {post} /project/ Post New Project information
+ * @apiName PostNewProject
+ * @apiGroup Project
+ *
+ * @apiParam {String} name Projects name.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
+router.post('/', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
 module.exports = router;
