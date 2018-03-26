@@ -1,4 +1,5 @@
 var express = require('express');
+var assert = require("assert");
 var router = express.Router();
 
 /**
@@ -12,7 +13,6 @@ var router = express.Router();
  * @apiSuccess {String} lastname  Lastname of the User.
  */
 router.get('/:id', function(req, res, next) {
-  req.assert('id', '没有指定项目ID').notEmpty();
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
