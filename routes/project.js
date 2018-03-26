@@ -1,3 +1,6 @@
+var express = require('express');
+var router = express.Router();
+
 /**
  * @api {get} /project/:id Request User information
  * @apiName GetUser
@@ -8,10 +11,7 @@
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
  */
-var express = require('express');
-var router = express.Router();
-
-router.get('/', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
