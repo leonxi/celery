@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Project = require('../models').Project;
 
 /**
  * @api {get} /project/list 取得所有项目
