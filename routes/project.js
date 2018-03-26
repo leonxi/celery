@@ -2,6 +2,22 @@ var express = require('express');
 var router = express.Router();
 
 /**
+ * @api {get} /project/list 取得所有项目
+ * @apiName GetProjectList
+ * @apiGroup Project
+ *
+ * @apiParam {Number} id Projects unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
+router.get('/list', function(req, res, next) {
+  Project.find(function(err, projects, count) {
+    res.json(projects);
+  });
+});
+
+/**
  * @api {get} /project/:id 取得项目详情
  * @apiName GetProject
  * @apiGroup Project
