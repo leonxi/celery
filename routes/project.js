@@ -12,6 +12,7 @@ var router = express.Router();
  * @apiSuccess {String} lastname  Lastname of the User.
  */
 router.get('/:id', function(req, res, next) {
+  req.assert('id', '没有指定项目ID');
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
