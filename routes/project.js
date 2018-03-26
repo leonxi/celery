@@ -3,7 +3,7 @@ var router = express.Router();
 var Project = require('../proxy').Project;
 
 /**
- * @api {get} /project/list 取得所有项目
+ * @api {get} /project/:userid/list 取得所有项目
  * @apiName GetProjectList
  * @apiGroup Project
  *
@@ -12,8 +12,8 @@ var Project = require('../proxy').Project;
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
  */
-router.get('/list', function(req, res, next) {
-  Project.find(function(err, projects, count) {
+router.get('/:userid/list', function(req, res, next) {
+  Project.getProjectsByUserId(function(err, projects, count) {
     if (err) {
       return next(err);
     }
