@@ -1,9 +1,8 @@
 var express = require('express');
-var assert = require("assert");
 var router = express.Router();
 
 /**
- * @api {get} /project/:id Request Project information
+ * @api {get} /project/:id 取得项目详情
  * @apiName GetProject
  * @apiGroup Project
  *
