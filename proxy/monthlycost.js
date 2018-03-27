@@ -14,6 +14,8 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
       
       MonthlyCost.findOne({project: {_id: id}, year: year, month: month}, ep.done(function(monthlycost) {
         if (monthlycost) {
+          console.log(monthlycost);
+          
           function customizer(objValue, srcValue) {
             if (_.isArray(objValue)) {
               return objValue.push(srcValue);
