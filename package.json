@@ -25,7 +25,7 @@
   "homepage": "https://github.com/leonxi/celery#readme",
   "dependencies": {
     "express": "~4.0.0",
-    "mongoose": "~3.6.13",
+    "mongoose": "~5.0.11",
     "body-parser": "~1.0.1",
     "eventproxy": "~1.0.0",
     "utility": "~1.6.0",
