@@ -150,7 +150,17 @@ router.get('/:id/:year/:month', function(req, res, next) {
  * @apiSuccess {String}   members.role                 项目成员角色.
  */
 router.put('/', function(req, res, next) {
-  res.json({ message: 'hooray! welcome to our api!' });
+  var name = validator.trim(req.body.name);
+
+  Project.newAndSave(name, function(err, project) {
+    if (err) {
+      console.error('Project ' + name + ' saved error: ', err.message);
+      return next(err);
+    }
+    
+    console.log('Project ' + name + ' saved!');
+    res.json(project);
+  });
 });
 
 /**

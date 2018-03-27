@@ -39,8 +39,18 @@ exports.getProjectsByUserId = function (userid, callback) {
 };
 
 exports.newAndSave = function (name, callback) {
-  var project = new Project();
-  project.name = name;
+  Project.findOne({name: name}, function (err, project) {
+    if (err) {
+      return callback(err, {});
+    }
 
-  project.save(callback);
+    if (project) {
+      callback(null, project);
+    } else {
+      var project        = new Project();
+      project.name       = name;
+
+      project.save(callback);
+    }
+  });
 };
