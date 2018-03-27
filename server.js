@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 require('./models');
+var errorhandler = require('errorhandler');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -17,6 +18,8 @@ var timesheet = require('./routes/timesheet');
 app.use(root + '/project', project);
 app.use(root + '/timesheet', timesheet);
 app.use('/apidoc', express.static('apidoc'));
+
+app.use(errorhandler());
 
 app.listen(port);
 console.log('Celery APIs on port ' + port);

@@ -30,6 +30,7 @@
     "eventproxy": "~1.0.0",
     "utility": "~1.6.0",
     "validator": "~5.1.0",
-    "node-uuid": "~1.4.7"
+    "node-uuid": "~1.4.7",
+    "errorhandler": "~1.4.3"
   }
 }
