@@ -122,8 +122,8 @@ router.get('/:year/:month', function(req, res, next) {
  *     HTTP/1.1 200 OK
  */
 router.put('/:year/:month', function(req, res, next) {
-  console.log(year);
-  console.log(month);
+  console.log(req.params.year);
+  console.log(req.params.month);
   console.log(req.body);
   var employees = req.body.employees;
 
