@@ -122,8 +122,8 @@ router.get('/:year/:month', function(req, res, next) {
  *     HTTP/1.1 200 OK
  */
 router.put('/:year/:month', function(req, res, next) {
-  var employees = req.body.data.employees;
   console.log(req.body.data);
+  var employees = req.body.data.employees;
 
   TimeSheet.newAndSave(year, month, employees, function(err, timesheet) {
     if (err) {
