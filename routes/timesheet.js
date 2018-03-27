@@ -129,13 +129,13 @@ router.put('/:year/:month', function(req, res, next) {
   var month = req.params.month;
   var employees = req.body.employees;
 
-  TimeSheet.newAndSave(year, month, employees, function(err, timesheet) {
+  TimeSheet.newAndSave(year, month, employees, function(err) {
     if (err) {
       return next(err);
     }
 
-    console.log(timesheet);
-    res.json(timesheet);
+    console.log('TimeSheet ' + year + '-' + month + ' saved!');
+    res.json('{}');
   });
 });
 
