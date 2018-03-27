@@ -4,7 +4,6 @@ var ObjectId  = Schema.ObjectId;
 
 var MonthlyCostSchema = new Schema({
   project: {
-    _id: {type: ObjectId},
     name: {type: String}
   },
   year: {type: String},
