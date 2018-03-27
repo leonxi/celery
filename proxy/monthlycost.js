@@ -21,7 +21,8 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
               return objValue.push(srcValue);
             }
           }
-          _.mergeWith(monthlycost.members, [{username: username, name: name, role: role}], customizer);
+
+          monthlycost.members = monthlycost.members.push([{username: username, name: name, role: role}]);
           
           monthlycost.save(callback);
         } else {
