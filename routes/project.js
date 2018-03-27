@@ -5,7 +5,7 @@ var Project = require('../proxy').Project;
 /**
  * @api {get} /project/:username/list 指定用户所属项目
  * @apiName GetUserProjectList
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} username 用户名称.
  *
@@ -43,7 +43,7 @@ router.get('/:username/list', function(req, res, next) {
 /**
  * @api {get} /project/:id 项目详情
  * @apiName GetProject
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id 项目ID.
  *
@@ -75,7 +75,7 @@ router.get('/:id', function(req, res, next) {
 /**
  * @api {get} /project/:id/:year/:month 项目月度成本
  * @apiName GetProjectMonthlyCost
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id    项目ID.
  * @apiParam {String} year  项目月度成本归属年.
@@ -137,7 +137,7 @@ router.get('/:id/:year/:month', function(req, res, next) {
 /**
  * @api {put} /project 创建/更新项目
  * @apiName NewOrSaveProject
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} name  项目名称.
  *
@@ -155,7 +155,7 @@ router.put('/', function(req, res, next) {
 /**
  * @api {put} /project/:id/:year/:month/member 创建/更新项目参与成员
  * @apiName NewOrSaveProjectMember
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -181,7 +181,7 @@ router.put('/:id/:year/:month/member', function(req, res, next) {
 /**
  * @api {delete} /project/:id/:year/:month/member 删除项目参与成员
  * @apiName DeleteProjectMember
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -205,7 +205,7 @@ router.delete('/:id/:year/:month/member', function(req, res, next) {
 /**
  * @api {put} /project/:id/:year/:month/:username/:day/list1 创建/更新项目参与成员工作时间(周一至周五工作日)
  * @apiName NewOrSaveProjectMemberWorkHours1
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -224,7 +224,7 @@ router.put('/:id/:year/:month/:username/:day/list1', function(req, res, next) {
 /**
  * @api {put} /project/:id/:year/:month/:username/:day/list2 创建/更新项目参与成员工作时间(周六，周日加班)
  * @apiName NewOrSaveProjectMemberWorkHours2
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -243,7 +243,7 @@ router.put('/:id/:year/:month/:username/:day/list2', function(req, res, next) {
 /**
  * @api {put} /project/:id/:year/:month/:username/:day/list3 创建/更新项目参与成员工作时间(国定假加班)
  * @apiName NewOrSaveProjectMemberWorkHours3
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -262,7 +262,7 @@ router.put('/:id/:year/:month/:username/:day/list3', function(req, res, next) {
 /**
  * @api {put} /project/:id/:year/:month/:username/:day/list4 创建/更新项目参与成员工作时间(周一至周五工作日加班)
  * @apiName NewOrSaveProjectMemberWorkHours4
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -281,7 +281,7 @@ router.put('/:id/:year/:month/:username/:day/list4', function(req, res, next) {
 /**
  * @api {delete} /project/:id/:year/:month/:username/:day/list1 删除项目参与成员工作时间(周一至周五工作日)
  * @apiName DeleteProjectMemberWorkHours1
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -299,7 +299,7 @@ router.delete('/:id/:year/:month/:username/:day/list1', function(req, res, next)
 /**
  * @api {delete} /project/:id/:year/:month/:username/:day/list2 删除项目参与成员工作时间(周六，周日加班)
  * @apiName DeleteProjectMemberWorkHours2
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -317,7 +317,7 @@ router.delete('/:id/:year/:month/:username/:day/list2', function(req, res, next)
 /**
  * @api {delete} /project/:id/:year/:month/:username/:day/list3 删除项目参与成员工作时间(国定假加班)
  * @apiName DeleteProjectMemberWorkHours3
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
@@ -335,7 +335,7 @@ router.delete('/:id/:year/:month/:username/:day/list3', function(req, res, next)
 /**
  * @api {delete} /project/:id/:year/:month/:username/:day/list4 删除项目参与成员工作时间(周一至周五工作日加班)
  * @apiName DeleteProjectMemberWorkHours4
- * @apiGroup 项目(Project)
+ * @apiGroup Project
  *
  * @apiParam {String} id          项目ID.
  * @apiParam {String} year        项目月度成本归属年.
