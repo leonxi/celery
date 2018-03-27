@@ -7,7 +7,8 @@ var database = process.env.MONGO_DATABASE || 'celery';
 var username = process.env.MONGO_USERNAME || 'root';
 var password = process.env.MONGO_PASSWORD || '1234';
 
-var mongodburl = 'mongodb://' + username + ':' + password + '@' + host + ':' + port + '/' + database;
+//var mongodburl = 'mongodb://' + username + ':' + password + '@' + host + ':' + port + '/' + database;
+var mongodburl = 'mongodb://' + host + ':' + port + '/' + database;
 
 mongoose.connect(mongodburl, {
   server: {poolSize: 20}
