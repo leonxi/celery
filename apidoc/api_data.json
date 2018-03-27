@@ -1923,5 +1923,121 @@
     "version": "0.0.0",
     "filename": "routes/timesheet.js",
     "groupTitle": "TimeSheet"
+  },
+  {
+    "type": "put",
+    "url": "/timesheet/:year/:month",
+    "title": "新建/更新月度考勤表",
+    "name": "NewOrSaveMonthlyTimeSheet",
+    "group": "TimeSheet",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "year",
+            "description": "<p>所属年度(yyyy).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "month",
+            "description": "<p>所属月度(MM).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "timesheet",
+            "description": "<p>考勤表.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "timesheet.employees",
+            "description": "<p>考勤表员工.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "timesheet.employees.employeename",
+            "description": "<p>考勤表员工名称.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "timesheet.employees.days",
+            "description": "<p>考勤表员工考勤.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "timesheet.employees.days.day",
+            "description": "<p>考勤表员工考勤日(dd).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timesheet.employees.days.workhours_1",
+            "description": "<p>考勤表员工考勤日工作时间(周一至周五工作日).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timesheet.employees.days.workhours_2",
+            "description": "<p>考勤表员工考勤日工作时间(周六，周日加班).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timesheet.employees.days.workhours_3",
+            "description": "<p>考勤表员工考勤日工作时间(国定假加班).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timesheet.employees.days.workhours_4",
+            "description": "<p>考勤表员工考勤日工作时间(周一至周五工作日加班).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timesheet.employees.days.takeoffhours",
+            "description": "<p>考勤表员工考勤日调休时间.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "timesheet.employees.days.leavehours",
+            "description": "<p>考勤表员工考勤日请假时间.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/timesheet.js",
+    "groupTitle": "TimeSheet"
   }
 ]
