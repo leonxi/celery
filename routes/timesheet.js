@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var TimeSheet = require('../proxy').TimeSheet;
+var models = require('../models');
+var TimeSheetModel = models.TimeSheet;
 
 /**
  * @api {get} /timesheet 全部考勤表
@@ -21,11 +22,8 @@ var TimeSheet = require('../proxy').TimeSheet;
  * @apiSuccess {Number}   years.months.timesheet.leavehourssum    考勤表员工请假时间汇总.
  */
 router.get('/', function(req, res, next) {
-  Project.getProjectsByUserId(function(err, projects, count) {
-    if (err) {
-      return next(err);
-    }
-    res.json(projects);
+  TimeSheetModel.find({}, function(err, timesheets) {
+    
   });
 });
 
@@ -49,11 +47,8 @@ router.get('/', function(req, res, next) {
  * @apiSuccess {Number}   months.timesheet.leavehourssum    考勤表员工请假时间汇总.
  */
 router.get('/:year', function(req, res, next) {
-  Project.getProjectsByUserId(function(err, projects, count) {
-    if (err) {
-      return next(err);
-    }
-    res.json(projects);
+  TimeSheetModel.find({"year": year}, function(err, timesheets) {
+    
   });
 });
 
@@ -87,11 +82,8 @@ router.get('/:year', function(req, res, next) {
  * @apiSuccess {Number}   timesheet.employees.days.leavehours     考勤表员工考勤日请假时间.
  */
 router.get('/:year/:month', function(req, res, next) {
-  Project.getProjectsByUserId(function(err, projects, count) {
-    if (err) {
-      return next(err);
-    }
-    res.json(projects);
+  TimeSheetModel.find({"year": year, "month": month}, function(err, timesheets) {
+    
   });
 });
 
