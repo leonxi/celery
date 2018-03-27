@@ -115,20 +115,20 @@ router.get('/:id', function(req, res, next) {
  * @apiSuccess {String}   workhours.list_1.day         项目月度成本参与成员工作时间列表(周一至周五工作日)归属日(DD).
  * @apiSuccess {Number}   workhours.list_1.hours       项目月度成本参与成员工作时间列表(周一至周五工作日)工作小时(Hours).
  * @apiSuccess {Object}   workhours.list_2             项目月度成本参与成员工作时间列表(周六，周日加班).
- * @apiSuccess {String}   workhours.list_2.year        项目月度成本参与成员工作时间列表(周一至周五工作日)归属年(yyyy).
- * @apiSuccess {String}   workhours.list_2.month       项目月度成本参与成员工作时间列表(周一至周五工作日)归属月(MM).
- * @apiSuccess {String}   workhours.list_2.day         项目月度成本参与成员工作时间列表(周一至周五工作日)归属日(DD).
- * @apiSuccess {Number}   workhours.list_2.hours       项目月度成本参与成员工作时间列表(周一至周五工作日)工作小时(Hours).
+ * @apiSuccess {String}   workhours.list_2.year        项目月度成本参与成员工作时间列表(周六，周日加班)归属年(yyyy).
+ * @apiSuccess {String}   workhours.list_2.month       项目月度成本参与成员工作时间列表(周六，周日加班)归属月(MM).
+ * @apiSuccess {String}   workhours.list_2.day         项目月度成本参与成员工作时间列表(周六，周日加班)归属日(DD).
+ * @apiSuccess {Number}   workhours.list_2.hours       项目月度成本参与成员工作时间列表(周六，周日加班)工作小时(Hours).
  * @apiSuccess {Object}   workhours.list_3             项目月度成本参与成员工作时间列表(国定假加班).
- * @apiSuccess {String}   workhours.list_3.year        项目月度成本参与成员工作时间列表(周一至周五工作日)归属年(yyyy).
- * @apiSuccess {String}   workhours.list_3.month       项目月度成本参与成员工作时间列表(周一至周五工作日)归属月(MM).
- * @apiSuccess {String}   workhours.list_3.day         项目月度成本参与成员工作时间列表(周一至周五工作日)归属日(DD).
- * @apiSuccess {Number}   workhours.list_3.hours       项目月度成本参与成员工作时间列表(周一至周五工作日)工作小时(Hours).
+ * @apiSuccess {String}   workhours.list_3.year        项目月度成本参与成员工作时间列表(国定假加班)归属年(yyyy).
+ * @apiSuccess {String}   workhours.list_3.month       项目月度成本参与成员工作时间列表(国定假加班)归属月(MM).
+ * @apiSuccess {String}   workhours.list_3.day         项目月度成本参与成员工作时间列表(国定假加班)归属日(DD).
+ * @apiSuccess {Number}   workhours.list_3.hours       项目月度成本参与成员工作时间列表(国定假加班)工作小时(Hours).
  * @apiSuccess {Object}   workhours.list_4             项目月度成本参与成员工作时间列表(周一至周五工作日加班).
- * @apiSuccess {String}   workhours.list_4.year        项目月度成本参与成员工作时间列表(周一至周五工作日)归属年(yyyy).
- * @apiSuccess {String}   workhours.list_4.month       项目月度成本参与成员工作时间列表(周一至周五工作日)归属月(MM).
- * @apiSuccess {String}   workhours.list_4.day         项目月度成本参与成员工作时间列表(周一至周五工作日)归属日(DD).
- * @apiSuccess {Number}   workhours.list_4.hours       项目月度成本参与成员工作时间列表(周一至周五工作日)工作小时(Hours).
+ * @apiSuccess {String}   workhours.list_4.year        项目月度成本参与成员工作时间列表(周一至周五工作日加班)归属年(yyyy).
+ * @apiSuccess {String}   workhours.list_4.month       项目月度成本参与成员工作时间列表(周一至周五工作日加班)归属月(MM).
+ * @apiSuccess {String}   workhours.list_4.day         项目月度成本参与成员工作时间列表(周一至周五工作日加班)归属日(DD).
+ * @apiSuccess {Number}   workhours.list_4.hours       项目月度成本参与成员工作时间列表(周一至周五工作日加班)工作小时(Hours).
  */
 router.get('/:id/:year/:month', function(req, res, next) {
   res.json({ message: 'hooray! welcome to our api!' });
@@ -153,10 +153,13 @@ router.put('/', function(req, res, next) {
 });
 
 /**
- * @api {put} /project/:id/:year/:month/member 创建/更新项目月度成本参与成员
- * @apiName NewOrSaveProjectMonthlyCostMember
+ * @api {put} /project/:id/:year/:month/member 创建/更新项目参与成员
+ * @apiName NewOrSaveProjectMember
  * @apiGroup Project
  *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
  * @apiParam {String} [username]  成员用户名(可选).
  * @apiParam {String} name        成员名称.
  * @apiParam {String} [role]      成员角色(可选).
@@ -172,6 +175,82 @@ router.put('/', function(req, res, next) {
  * @apiSuccess {String}   members.role                 项目成员角色.
  */
 router.put('/:id/:year/:month/member', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {put} /project/:id/:year/:month/:username/:day/list1 创建/更新项目参与成员工作时间(周一至周五工作日)
+ * @apiName NewOrSaveProjectMemberWorkHours1
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ * @apiParam {String} day         项目月度成本归属日.
+ * @apiParam {String} hours       项目月度成本工作小时.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.put('/:id/:year/:month/:username/:day/list1', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {put} /project/:id/:year/:month/:username/:day/list2 创建/更新项目参与成员工作时间(周六，周日加班)
+ * @apiName NewOrSaveProjectMemberWorkHours2
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ * @apiParam {String} day         项目月度成本归属日.
+ * @apiParam {String} hours       项目月度成本工作小时.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.put('/:id/:year/:month/:username/:day/list2', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {put} /project/:id/:year/:month/:username/:day/list3 创建/更新项目参与成员工作时间(国定假加班)
+ * @apiName NewOrSaveProjectMemberWorkHours3
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ * @apiParam {String} day         项目月度成本归属日.
+ * @apiParam {String} hours       项目月度成本工作小时.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.put('/:id/:year/:month/:username/:day/list3', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {put} /project/:id/:year/:month/:username/:day/list4 创建/更新项目参与成员工作时间(周一至周五工作日加班)
+ * @apiName NewOrSaveProjectMemberWorkHours4
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ * @apiParam {String} day         项目月度成本归属日.
+ * @apiParam {String} hours       项目月度成本工作小时.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.put('/:id/:year/:month/:username/:day/list4', function(req, res, next) {
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
