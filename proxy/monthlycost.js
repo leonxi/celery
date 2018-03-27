@@ -25,6 +25,8 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
           
           monthlycost.save(callback);
         } else {
+          console.log('monthlycost project ' + id + ', year ' + year + ', month ' + month + ' not exist.');
+
           var monthlycost = new MonthlyCost();
           
           monthlycost.project.projectid = id;
