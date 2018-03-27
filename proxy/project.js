@@ -1,6 +1,7 @@
-var EventProxy = require('eventproxy');
-var models = require('../models');
-var Project = models.Project;
+var EventProxy  = require('eventproxy');
+var models      = require('../models');
+var Project     = models.Project;
+var MonthlyCost = models.MonthlyCost;
 
 exports.getProjectsByUserId = function (userid, callback) {
 
@@ -52,14 +53,5 @@ exports.newAndSave = function (name, callback) {
 
       project.save(callback);
     }
-  });
-};
-
-exports.newAndSaveMember = function (id, year, month, username, name, role, callback) {
-  Project.findOne({_id: id, year}, function (err, project) {
-    if (err) {
-      return callback(err, {});
-    }
-  
   });
 };

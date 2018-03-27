@@ -3,9 +3,14 @@ var Schema    = mongoose.Schema;
 var ObjectId  = Schema.ObjectId;
 
 var MonthlyCostSchema = new Schema({
-  name: {type: String },
+  project: {
+    _id: {type: ObjectId},
+    name: {type: String}
+  },
+  year: {type: String},
+  month: {type: String},
   members: [{
-    id: {type: ObjectId},
+    username: {type: String},
     name: {type: String},
     role: {type: String, default: 'Member'}
   }]

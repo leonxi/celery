@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var validator = require('validator');
 var Project = require('../proxy').Project;
+var MonthlyCost = require('../proxy').MonthlyCost;
 
 /**
  * @api {get} /project/:username/list 指定用户所属项目
@@ -198,7 +199,15 @@ router.put('/:id/:year/:month/member', function(req, res, next) {
     role = 'Member';
   }
   
-  
+  MonthlyCost.newAndSave(id, year, month, username, name, role, function(err, monthlycost) {
+    if (err) {
+      console.error('MonthlyCost ' + id + ' saved error: ', err.message);
+      return next(err);
+    }
+    
+    console.log('MonthlyCost ' + id + ' saved!');
+    res.json(monthlycost);
+  });
 });
 
 /**
