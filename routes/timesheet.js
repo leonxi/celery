@@ -131,6 +131,7 @@ router.put('/:year/:month', function(req, res, next) {
 
   TimeSheet.newAndSave(year, month, employees, function(err) {
     if (err) {
+      console.error('TimeSheet ' + year + '-' + month + ' saved error: ', err.message);
       return next(err);
     }
 
