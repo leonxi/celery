@@ -53,6 +53,8 @@ router.get('/', function(req, res, next) {
  * @apiSuccess {Number}   months.timesheet.leavehourssum    考勤表员工请假时间汇总.
  */
 router.get('/:year', function(req, res, next) {
+  var year = req.params.year;
+
   TimeSheetModel.find({"year": year}, function(err, timesheets) {
     if (err) {
       return next(err);
@@ -91,6 +93,9 @@ router.get('/:year', function(req, res, next) {
  * @apiSuccess {Number}   employees.days.leavehours               考勤表员工考勤日请假时间.
  */
 router.get('/:year/:month', function(req, res, next) {
+  var year = req.params.year;
+  var month = req.params.month;
+
   TimeSheetModel.find({"year": year, "month": month}, function(err, timesheets) {
     if (err) {
       return next(err);
