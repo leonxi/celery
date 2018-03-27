@@ -2,10 +2,6 @@ var mongoose = require('mongoose');
 
 var db = mongoose.connection;
 
-db.on('error', function callback() {
-  console.log("Connection error");
-});
-
 var host = process.env.MONGO_HOST || 'mongodb';
 var port = process.env.MONGO_PORT || '27017';
 var database = process.env.MONGO_DATABASE || 'celery';
@@ -13,8 +9,17 @@ var database = process.env.MONGO_DATABASE || 'celery';
 var username = process.env.MONGO_USERNAME || 'root';
 var password = process.env.MONGO_PASSWORD || '1234';
 
-mongoose.connect('mongodb://' + username + ':' + password + '@' + host + ':' + port + '/' + database);
+var mongodburl = 'mongodb://' + username + ':' + password + '@' + host + ':' + port + '/' + database;
 
+mongoose.connect(mongodburl, function(err) {
+  if (err) {
+    console.error('mongodb connect to %s error: ', mongodburl, err.message);
+  } else {
+    console.log('mongodb connect successfully on port ' + port);
+  }
+});
+
+mongoose.set('debug', true);
 
 require('./project');
 require('./member');
