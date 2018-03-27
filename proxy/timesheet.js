@@ -8,7 +8,7 @@ exports.getTimeSheetByMonth = function (year, month, callback) {
 };
 
 exports.newAndSave = function (year, month, employees, callback) {
-  getTimeSheetByMonth(year, month, function (err, timesheet) {
+  TimeSheet.findOne({year: year, month: month}, function (err, timesheet) {
     if (err) {
       return callback(err, {});
     }
