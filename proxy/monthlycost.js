@@ -12,7 +12,7 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
   Project.findOne({_id: id}, ep.done(function (project) {
     if (project) {
       
-      MonthlyCost.findOne({project: {_id: mongoose.Types.ObjectId(id)}, year: year, month: month}, ep.done(function(monthlycost) {
+      MonthlyCost.findOne({project: {projectid: id}, year: year, month: month}, ep.done(function(monthlycost) {
         if (monthlycost) {
           console.log(monthlycost);
           
@@ -27,7 +27,7 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
         } else {
           var monthlycost = new MonthlyCost();
           
-          monthlycost.project._id = project._id;
+          monthlycost.project.projectid = id;
           monthlycost.project.name = project.name;
           monthlycost.year = year;
           monthlycost.month = month;
