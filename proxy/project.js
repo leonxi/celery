@@ -54,3 +54,12 @@ exports.newAndSave = function (name, callback) {
     }
   });
 };
+
+exports.newAndSaveMember = function (id, year, month, username, name, role, callback) {
+  Project.findOne({_id: id, year}, function (err, project) {
+    if (err) {
+      return callback(err, {});
+    }
+  
+  });
+};

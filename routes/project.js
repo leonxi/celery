@@ -186,7 +186,19 @@ router.put('/', function(req, res, next) {
  * @apiSuccess {String}   members.role                 项目成员角色.
  */
 router.put('/:id/:year/:month/member', function(req, res, next) {
-  res.json({ message: 'hooray! welcome to our api!' });
+  var id    = validator.trim(req.params.id);
+  var year  = validator.trim(req.params.year);
+  var month = validator.trim(req.params.month);
+  var username = validator.trim(req.body.name);
+  var name = validator.trim(req.body.name);
+  var role = validator.trim(req.body.name);
+  
+  // Default role 'Member'
+  if (role === '') {
+    role = 'Member';
+  }
+  
+  
 });
 
 /**

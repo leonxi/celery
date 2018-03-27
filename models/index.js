@@ -27,8 +27,10 @@ require('./project');
 require('./member');
 require('./user');
 require('./timesheet');
+require('./monthlycost');
 
 exports.Project      = mongoose.model('Project');
 exports.Member       = mongoose.model('Member');
 exports.User         = mongoose.model('User');
 exports.TimeSheet    = mongoose.model('TimeSheet');
+exports.MonthlyCost  = mongoose.model('MonthlyCost');

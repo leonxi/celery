@@ -16,6 +16,8 @@ var TimeSheetSchema = new Schema({
       leavehours: {type: Number},
     }]
   }]
+},{
+  collection: 'timesheet'
 });
 
 mongoose.model('TimeSheet', TimeSheetSchema);

@@ -2,7 +2,7 @@ var mongoose  = require('mongoose');
 var Schema    = mongoose.Schema;
 var ObjectId  = Schema.ObjectId;
 
-var ProjectSchema = new Schema({
+var MonthlyCostSchema = new Schema({
   name: {type: String },
   members: [{
     id: {type: ObjectId},
@@ -10,7 +10,8 @@ var ProjectSchema = new Schema({
     role: {type: String, default: 'Member'}
   }]
 },{
-  collection: 'project'
+  collection: 'project.monthlycost'
 });
 
-mongoose.model('Project', ProjectSchema);
+mongoose.model('MonthlyCost', MonthlyCostSchema);
+
