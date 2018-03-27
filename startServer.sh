@@ -1,5 +1,5 @@
 git pull origin master
-./genapidoc.sh
+apidoc -i routes/ -o apidoc/
 npm install
 
 node server.js
