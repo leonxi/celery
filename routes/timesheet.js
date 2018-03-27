@@ -123,12 +123,14 @@ router.get('/:year/:month', function(req, res, next) {
  */
 router.put('/:year/:month', function(req, res, next) {
   var employees = req.body.data.employees;
+  console.log(employees);
 
   TimeSheet.newAndSave(year, month, employees, function(err, timesheet) {
     if (err) {
       return next(err);
     }
-    
+
+    console.log(timesheet);
     res.json(timesheet);
   });
 });
