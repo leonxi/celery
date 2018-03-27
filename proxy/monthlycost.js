@@ -12,7 +12,7 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
   Project.findOne({_id: id}, ep.done(function (project) {
     if (project) {
       
-      MonthlyCost.findOne({project: {projectid: id}, year: year, month: month}, ep.done(function(monthlycost) {
+      MonthlyCost.findOne({'project.projectid': id, year: year, month: month}, ep.done(function(monthlycost) {
         if (monthlycost) {
           console.log(monthlycost);
           
