@@ -7,7 +7,7 @@ var TimeSheet = require('../proxy').TimeSheet;
 /**
  * @api {get} /timesheet 全部考勤表
  * @apiName GetTimeSheetList
- * @apiGroup TimeSheet
+ * @apiGroup 考勤表(TimeSheet)
  *
  * @apiSuccess {Object[]} years                                   年度列表.
  * @apiSuccess {String}   years.year                              所属年度(yyyy).
@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
 /**
  * @api {get} /timesheet/:year 年度考勤表
  * @apiName GetTimeSheetListByYear
- * @apiGroup TimeSheet
+ * @apiGroup 考勤表(TimeSheet)
  *
  * @apiParam {String} year 所属年度.
  *
@@ -56,7 +56,7 @@ router.get('/:year', function(req, res, next) {
 /**
  * @api {get} /timesheet/:year/:month 月度考勤表
  * @apiName GetTimeSheetListByMonth
- * @apiGroup TimeSheet
+ * @apiGroup 考勤表(TimeSheet)
  *
  * @apiParam {String} year  所属年度.
  * @apiParam {String} month 所属月度.
@@ -91,7 +91,7 @@ router.get('/:year/:month', function(req, res, next) {
 /**
  * @api {put} /timesheet/:year/:month 新建/更新月度考勤表
  * @apiName NewOrSaveMonthlyTimeSheet
- * @apiGroup TimeSheet
+ * @apiGroup 考勤表(TimeSheet)
  *
  * @apiParam {String}   year                                    所属年度(yyyy).
  * @apiParam {String}   month                                   所属月度(MM).
