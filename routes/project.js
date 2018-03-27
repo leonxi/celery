@@ -82,6 +82,7 @@ router.get('/:id', function(req, res, next) {
  * @apiParam {String} month 项目月度成本归属月.
  *
  * @apiSuccess {Object}   project                      项目详情.
+ * @apiSuccess {String}   project._id                  项目ID.
  * @apiSuccess {String}   project.name                 项目名称.
  * @apiSuccess {String}   year                         项目月度成本归属年(yyyy).
  * @apiSuccess {String}   month                        项目月度成本归属月(MM).
@@ -129,7 +130,48 @@ router.get('/:id', function(req, res, next) {
  * @apiSuccess {String}   workhours.list_4.day         项目月度成本参与成员工作时间列表(周一至周五工作日)归属日(DD).
  * @apiSuccess {Number}   workhours.list_4.hours       项目月度成本参与成员工作时间列表(周一至周五工作日)工作小时(Hours).
  */
-router.post('/:id/:year/:month', function(req, res, next) {
+router.get('/:id/:year/:month', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {put} /project 创建/更新项目
+ * @apiName NewOrSaveProject
+ * @apiGroup Project
+ *
+ * @apiParam {String} name  项目名称.
+ *
+ * @apiSuccess {String}   _id                          项目ID.
+ * @apiSuccess {String}   name                         项目名称.
+ * @apiSuccess {Object[]} members                      项目成员列表.
+ * @apiSuccess {String}   members.username             项目成员用户名.
+ * @apiSuccess {String}   members.name                 项目成员名称.
+ * @apiSuccess {String}   members.role                 项目成员角色.
+ */
+router.put('/', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {put} /project/:id/:year/:month/member 创建/更新项目月度成本参与成员
+ * @apiName NewOrSaveProjectMonthlyCostMember
+ * @apiGroup Project
+ *
+ * @apiParam {String} [username]  成员用户名(可选).
+ * @apiParam {String} name        成员名称.
+ * @apiParam {String} [role]      成员角色(可选).
+ *
+ * @apiSuccess {Object}   project                      项目详情.
+ * @apiSuccess {String}   project._id                  项目ID.
+ * @apiSuccess {String}   project.name                 项目名称.
+ * @apiSuccess {String}   year                         项目月度成本归属年(yyyy).
+ * @apiSuccess {String}   month                        项目月度成本归属月(MM).
+ * @apiSuccess {Object[]} members                      项目成员列表.
+ * @apiSuccess {String}   members.username             项目成员用户名.
+ * @apiSuccess {String}   members.name                 项目成员名称.
+ * @apiSuccess {String}   members.role                 项目成员角色.
+ */
+router.put('/:id/:year/:month/member', function(req, res, next) {
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
