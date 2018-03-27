@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-var db = mongoose.connection;
-
 var host = process.env.MONGO_HOST || 'mongodb';
 var port = process.env.MONGO_PORT || '27017';
 var database = process.env.MONGO_DATABASE || 'celery';
@@ -11,9 +9,12 @@ var password = process.env.MONGO_PASSWORD || '1234';
 
 var mongodburl = 'mongodb://' + username + ':' + password + '@' + host + ':' + port + '/' + database;
 
-mongoose.connect(mongodburl, function(err) {
+mongoose.connect(mongodburl, {
+  server: {poolSize: 20}
+}, function(err) {
   if (err) {
     console.error('mongodb connect to %s error: ', mongodburl, err.message);
+    process.exit(1);
   } else {
     console.log('mongodb connect successfully on port ' + port);
   }

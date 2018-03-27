@@ -8,5 +8,9 @@ exports.newAndSave = function (year, month, employees, callback) {
   timesheet.month      = month;
   timesheet.employees  = employees;
 
+  console.log(year);
+  console.log(month);
+  console.log(employees);
+
   timesheet.save(callback);
 };
