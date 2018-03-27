@@ -3,7 +3,7 @@ var router = express.Router();
 var Project = require('../proxy').Project;
 
 /**
- * @api {get} /project/:username/list 取得当前用户所有项目详情
+ * @api {get} /project/:username/list 指定用户所属项目
  * @apiName GetUserProjectList
  * @apiGroup Project
  *
@@ -41,7 +41,7 @@ router.get('/:username/list', function(req, res, next) {
 });
 
 /**
- * @api {get} /project/:id 取得项目详情
+ * @api {get} /project/:id 项目详情
  * @apiName GetProject
  * @apiGroup Project
  *
@@ -73,7 +73,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /**
- * @api {get} /project/:id/:year/:month 取得项目月度成本详情
+ * @api {get} /project/:id/:year/:month 项目月度成本
  * @apiName GetProjectMonthlyCost
  * @apiGroup Project
  *
