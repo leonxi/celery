@@ -16,7 +16,7 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
         if (monthlycost) {
           console.log(monthlycost);
 
-          monthlycost.members.push([{username: username, name: name, role: role}]);
+          monthlycost.members.push({username: username, name: name, role: role});
           
           monthlycost.save(callback);
         } else {
