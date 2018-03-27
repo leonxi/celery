@@ -12,8 +12,10 @@ var port = process.env.PORT || 8080;
 var root = '/' + schema + '/apis/' + projectname;
 
 var project = require('./routes/project');
+var timesheet = require('./routes/timesheet');
 
 app.use(root + '/project', project);
+app.use(root + '/timesheet', timesheet);
 app.use('/apidoc', express.static('apidoc'));
 
 app.listen(port);
