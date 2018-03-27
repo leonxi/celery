@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 var TimeSheetModel = models.TimeSheet;
+var TimeSheet = require('../proxy').TimeSheet;
 
 /**
  * @api {get} /timesheet 全部考勤表
@@ -110,10 +111,7 @@ router.get('/:year/:month', function(req, res, next) {
  *     HTTP/1.1 200 OK
  */
 router.put('/:year/:month', function(req, res, next) {
-  Project.getProjectsByUserId(function(err, projects, count) {
-    if (err) {
-      return next(err);
-    }
-    res.json(projects);
+  TimeSheet.newAndSave(year, month, employees, function(err, timesheet) {
+    
   });
 });
