@@ -3,6 +3,7 @@ var router = express.Router();
 var validator = require('validator');
 var Project = require('../proxy').Project;
 var MonthlyCost = require('../proxy').MonthlyCost;
+var _ = require('lodash');
 
 /**
  * @api {get} /project/:username/list 指定用户所属项目
@@ -190,9 +191,9 @@ router.put('/:id/:year/:month/member', function(req, res, next) {
   var id    = validator.trim(req.params.id);
   var year  = validator.trim(req.params.year);
   var month = validator.trim(req.params.month);
-  var username = validator.trim(req.body.username);
+  var username = _.isUndefined(req.body.username) ? null : validator.trim(req.body.username);
   var name = validator.trim(req.body.name);
-  var role = validator.trim(req.body.role);
+  var role = _.isUndefined(req.body.role) ? null : validator.trim(req.body.role);
   
   // Default role 'Member'
   if (role === '') {
