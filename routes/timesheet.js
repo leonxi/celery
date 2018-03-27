@@ -125,6 +125,8 @@ router.put('/:year/:month', function(req, res, next) {
   console.log(req.params.year);
   console.log(req.params.month);
   console.log(req.body);
+  var year = req.params.year;
+  var month = req.params.month;
   var employees = req.body.employees;
 
   TimeSheet.newAndSave(year, month, employees, function(err, timesheet) {
