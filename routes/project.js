@@ -193,7 +193,7 @@ router.put('/:id/:year/:month/member', function(req, res, next) {
   var month = validator.trim(req.params.month);
   var username = _.isUndefined(req.body.username) ? null : validator.trim(req.body.username);
   var name = validator.trim(req.body.name);
-  var role = _.isUndefined(req.body.role) ? null : validator.trim(req.body.role);
+  var role = _.isUndefined(req.body.role) ? '' : validator.trim(req.body.role);
   
   // Default role 'Member'
   if (role === '') {
