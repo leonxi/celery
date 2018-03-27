@@ -17,7 +17,9 @@ mongoose.connect('mongodb://' + username + ':' + password + '@' + host + ':' + p
 
 
 require('./project');
+require('./member');
 require('./user');
 
 exports.Project      = mongoose.model('Project');
+exports.Member       = mongoose.model('Member');
 exports.User         = mongoose.model('User');
