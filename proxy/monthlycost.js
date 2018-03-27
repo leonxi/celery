@@ -13,7 +13,12 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
       
       MonthlyCost.findOne({project:{_id: project.id}, year: year, month: month}, ep.done(function(monthlycost) {
         if (monthlycost) {
-          _.merge(monthlycost.members, [{username: username, name: name, role: role}]);
+          function customizer(objValue, srcValue) {
+            if (_.isArray(objValue)) {
+              return objValue.concat(srcValue);
+            }
+          }
+          _.mergeWith(monthlycost.members, [{username: username, name: name, role: role}], customizer);
           
           monthlycost.save(callback);
         } else {
