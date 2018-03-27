@@ -179,6 +179,30 @@ router.put('/:id/:year/:month/member', function(req, res, next) {
 });
 
 /**
+ * @api {delete} /project/:id/:year/:month/member 删除项目参与成员
+ * @apiName DeleteProjectMember
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ *
+ * @apiSuccess {Object}   project                      项目详情.
+ * @apiSuccess {String}   project._id                  项目ID.
+ * @apiSuccess {String}   project.name                 项目名称.
+ * @apiSuccess {String}   year                         项目月度成本归属年(yyyy).
+ * @apiSuccess {String}   month                        项目月度成本归属月(MM).
+ * @apiSuccess {Object[]} members                      项目成员列表.
+ * @apiSuccess {String}   members.username             项目成员用户名.
+ * @apiSuccess {String}   members.name                 项目成员名称.
+ * @apiSuccess {String}   members.role                 项目成员角色.
+ */
+router.delete('/:id/:year/:month/member', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
  * @api {put} /project/:id/:year/:month/:username/:day/list1 创建/更新项目参与成员工作时间(周一至周五工作日)
  * @apiName NewOrSaveProjectMemberWorkHours1
  * @apiGroup Project
@@ -251,6 +275,78 @@ router.put('/:id/:year/:month/:username/:day/list3', function(req, res, next) {
  *     HTTP/1.1 200 OK
  */
 router.put('/:id/:year/:month/:username/:day/list4', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {delete} /project/:id/:year/:month/:username/:day/list1 删除项目参与成员工作时间(周一至周五工作日)
+ * @apiName DeleteProjectMemberWorkHours1
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ * @apiParam {String} day         项目月度成本归属日.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.delete('/:id/:year/:month/:username/:day/list1', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {delete} /project/:id/:year/:month/:username/:day/list2 删除项目参与成员工作时间(周六，周日加班)
+ * @apiName DeleteProjectMemberWorkHours2
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ * @apiParam {String} day         项目月度成本归属日.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.delete('/:id/:year/:month/:username/:day/list2', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {delete} /project/:id/:year/:month/:username/:day/list3 删除项目参与成员工作时间(国定假加班)
+ * @apiName DeleteProjectMemberWorkHours3
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ * @apiParam {String} day         项目月度成本归属日.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.delete('/:id/:year/:month/:username/:day/list3', function(req, res, next) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+
+/**
+ * @api {delete} /project/:id/:year/:month/:username/:day/list4 删除项目参与成员工作时间(周一至周五工作日加班)
+ * @apiName DeleteProjectMemberWorkHours4
+ * @apiGroup Project
+ *
+ * @apiParam {String} id          项目ID.
+ * @apiParam {String} year        项目月度成本归属年.
+ * @apiParam {String} month       项目月度成本归属月.
+ * @apiParam {String} username    成员用户名.
+ * @apiParam {String} day         项目月度成本归属日.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.delete('/:id/:year/:month/:username/:day/list4', function(req, res, next) {
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
