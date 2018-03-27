@@ -15,7 +15,7 @@ exports.newAndSave = function (id, year, month, username, name, role, callback) 
         if (monthlycost) {
           function customizer(objValue, srcValue) {
             if (_.isArray(objValue)) {
-              return objValue.concat(srcValue);
+              return objValue.push(srcValue);
             }
           }
           _.mergeWith(monthlycost.members, [{username: username, name: name, role: role}], customizer);
