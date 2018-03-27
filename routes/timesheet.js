@@ -25,7 +25,11 @@ var TimeSheet = require('../proxy').TimeSheet;
  */
 router.get('/', function(req, res, next) {
   TimeSheetModel.find({}, function(err, timesheets) {
+    if (err) {
+      return next(err);
+    }
     
+    res.json(timesheets);
   });
 });
 
@@ -50,7 +54,11 @@ router.get('/', function(req, res, next) {
  */
 router.get('/:year', function(req, res, next) {
   TimeSheetModel.find({"year": year}, function(err, timesheets) {
+    if (err) {
+      return next(err);
+    }
     
+    res.json(timesheets);
   });
 });
 
@@ -64,28 +72,31 @@ router.get('/:year', function(req, res, next) {
  *
  * @apiSuccess {String}   year                                    所属年度(yyyy).
  * @apiSuccess {String}   month                                   所属月度(MM).
- * @apiSuccess {Object}   timesheet                               考勤表.
- * @apiSuccess {Number}   timesheet.employeescount                考勤表员工数.
- * @apiSuccess {Number}   timesheet.workhourssum_1                考勤表员工工作时间汇总(周一至周五工作日).
- * @apiSuccess {Number}   timesheet.workhourssum_2                考勤表员工工作时间汇总(周六，周日加班).
- * @apiSuccess {Number}   timesheet.workhourssum_3                考勤表员工工作时间汇总(国定假加班).
- * @apiSuccess {Number}   timesheet.workhourssum_4                考勤表员工工作时间汇总(周一至周五工作日加班).
- * @apiSuccess {Number}   timesheet.takeoffhourssum               考勤表员工调休时间汇总.
- * @apiSuccess {Number}   timesheet.leavehourssum                 考勤表员工请假时间汇总.
- * @apiSuccess {Object[]} timesheet.employees                     考勤表员工.
- * @apiSuccess {String}   timesheet.employees.employeename        考勤表员工名称.
- * @apiSuccess {Object[]} timesheet.employees.days                考勤表员工考勤.
- * @apiSuccess {String}   timesheet.employees.days.day            考勤表员工考勤日(dd).
- * @apiSuccess {Number}   timesheet.employees.days.workhours_1    考勤表员工考勤日工作时间(周一至周五工作日).
- * @apiSuccess {Number}   timesheet.employees.days.workhours_2    考勤表员工考勤日工作时间(周六，周日加班).
- * @apiSuccess {Number}   timesheet.employees.days.workhours_3    考勤表员工考勤日工作时间(国定假加班).
- * @apiSuccess {Number}   timesheet.employees.days.workhours_4    考勤表员工考勤日工作时间(周一至周五工作日加班).
- * @apiSuccess {Number}   timesheet.employees.days.takeoffhours   考勤表员工考勤日调休时间.
- * @apiSuccess {Number}   timesheet.employees.days.leavehours     考勤表员工考勤日请假时间.
+ * @apiSuccess {Number}   employeescount                          考勤表员工数.
+ * @apiSuccess {Number}   workhourssum_1                          考勤表员工工作时间汇总(周一至周五工作日).
+ * @apiSuccess {Number}   workhourssum_2                          考勤表员工工作时间汇总(周六，周日加班).
+ * @apiSuccess {Number}   workhourssum_3                          考勤表员工工作时间汇总(国定假加班).
+ * @apiSuccess {Number}   workhourssum_4                          考勤表员工工作时间汇总(周一至周五工作日加班).
+ * @apiSuccess {Number}   takeoffhourssum                         考勤表员工调休时间汇总.
+ * @apiSuccess {Number}   leavehourssum                           考勤表员工请假时间汇总.
+ * @apiSuccess {Object[]} employees                               考勤表员工.
+ * @apiSuccess {String}   employees.employeename                  考勤表员工名称.
+ * @apiSuccess {Object[]} employees.days                          考勤表员工考勤.
+ * @apiSuccess {String}   employees.days.day                      考勤表员工考勤日(dd).
+ * @apiSuccess {Number}   employees.days.workhours_1              考勤表员工考勤日工作时间(周一至周五工作日).
+ * @apiSuccess {Number}   employees.days.workhours_2              考勤表员工考勤日工作时间(周六，周日加班).
+ * @apiSuccess {Number}   employees.days.workhours_3              考勤表员工考勤日工作时间(国定假加班).
+ * @apiSuccess {Number}   employees.days.workhours_4              考勤表员工考勤日工作时间(周一至周五工作日加班).
+ * @apiSuccess {Number}   employees.days.takeoffhours             考勤表员工考勤日调休时间.
+ * @apiSuccess {Number}   employees.days.leavehours               考勤表员工考勤日请假时间.
  */
 router.get('/:year/:month', function(req, res, next) {
   TimeSheetModel.find({"year": year, "month": month}, function(err, timesheets) {
+    if (err) {
+      return next(err);
+    }
     
+    res.json(timesheets);
   });
 });
 
@@ -96,24 +107,29 @@ router.get('/:year/:month', function(req, res, next) {
  *
  * @apiParam {String}   year                                    所属年度(yyyy).
  * @apiParam {String}   month                                   所属月度(MM).
- * @apiParam {Object}   timesheet                               考勤表.
- * @apiParam {Object[]} timesheet.employees                     考勤表员工.
- * @apiParam {String}   timesheet.employees.employeename        考勤表员工名称.
- * @apiParam {Object[]} timesheet.employees.days                考勤表员工考勤.
- * @apiParam {String}   timesheet.employees.days.day            考勤表员工考勤日(dd).
- * @apiParam {Number}   timesheet.employees.days.workhours_1    考勤表员工考勤日工作时间(周一至周五工作日).
- * @apiParam {Number}   timesheet.employees.days.workhours_2    考勤表员工考勤日工作时间(周六，周日加班).
- * @apiParam {Number}   timesheet.employees.days.workhours_3    考勤表员工考勤日工作时间(国定假加班).
- * @apiParam {Number}   timesheet.employees.days.workhours_4    考勤表员工考勤日工作时间(周一至周五工作日加班).
- * @apiParam {Number}   timesheet.employees.days.takeoffhours   考勤表员工考勤日调休时间.
- * @apiParam {Number}   timesheet.employees.days.leavehours     考勤表员工考勤日请假时间.
+ * @apiParam {Object[]} employees                               考勤表员工.
+ * @apiParam {String}   employees.employeename                  考勤表员工名称.
+ * @apiParam {Object[]} employees.days                          考勤表员工考勤.
+ * @apiParam {String}   employees.days.day                      考勤表员工考勤日(dd).
+ * @apiParam {Number}   employees.days.workhours_1              考勤表员工考勤日工作时间(周一至周五工作日).
+ * @apiParam {Number}   employees.days.workhours_2              考勤表员工考勤日工作时间(周六，周日加班).
+ * @apiParam {Number}   employees.days.workhours_3              考勤表员工考勤日工作时间(国定假加班).
+ * @apiParam {Number}   employees.days.workhours_4              考勤表员工考勤日工作时间(周一至周五工作日加班).
+ * @apiParam {Number}   employees.days.takeoffhours             考勤表员工考勤日调休时间.
+ * @apiParam {Number}   employees.days.leavehours               考勤表员工考勤日请假时间.
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  */
 router.put('/:year/:month', function(req, res, next) {
+  var employees = req.body.data.employees;
+
   TimeSheet.newAndSave(year, month, employees, function(err, timesheet) {
+    if (err) {
+      return next(err);
+    }
     
+    res.json(timesheet);
   });
 });
 
