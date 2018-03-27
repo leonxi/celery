@@ -94,3 +94,34 @@ router.get('/:year/:month', function(req, res, next) {
     res.json(projects);
   });
 });
+
+/**
+ * @api {put} /timesheet/:year/:month 新建/更新月度考勤表
+ * @apiName NewOrSaveMonthlyTimeSheet
+ * @apiGroup TimeSheet
+ *
+ * @apiParam {String}   year                                    所属年度(yyyy).
+ * @apiParam {String}   month                                   所属月度(MM).
+ * @apiParam {Object}   timesheet                               考勤表.
+ * @apiParam {Object[]} timesheet.employees                     考勤表员工.
+ * @apiParam {String}   timesheet.employees.employeename        考勤表员工名称.
+ * @apiParam {Object[]} timesheet.employees.days                考勤表员工考勤.
+ * @apiParam {String}   timesheet.employees.days.day            考勤表员工考勤日(dd).
+ * @apiParam {Number}   timesheet.employees.days.workhours_1    考勤表员工考勤日工作时间(周一至周五工作日).
+ * @apiParam {Number}   timesheet.employees.days.workhours_2    考勤表员工考勤日工作时间(周六，周日加班).
+ * @apiParam {Number}   timesheet.employees.days.workhours_3    考勤表员工考勤日工作时间(国定假加班).
+ * @apiParam {Number}   timesheet.employees.days.workhours_4    考勤表员工考勤日工作时间(周一至周五工作日加班).
+ * @apiParam {Number}   timesheet.employees.days.takeoffhours   考勤表员工考勤日调休时间.
+ * @apiParam {Number}   timesheet.employees.days.leavehours     考勤表员工考勤日请假时间.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ */
+router.put('/:year/:month', function(req, res, next) {
+  Project.getProjectsByUserId(function(err, projects, count) {
+    if (err) {
+      return next(err);
+    }
+    res.json(projects);
+  });
+});
