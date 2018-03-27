@@ -4,7 +4,7 @@ var host = process.env.MONGO_HOST || 'mongodb';
 var port = process.env.MONGO_PORT || '27017';
 var database = process.env.MONGO_DATABASE || 'celery';
 
-var username = process.env.MONGO_USERNAME || 'xiaoji';
+var username = process.env.MONGO_USERNAME || 'root';
 var password = process.env.MONGO_PASSWORD || '1234';
 
 var mongodburl = 'mongodb://' + username + ':' + password + '@' + host + ':' + port + '/' + database;
