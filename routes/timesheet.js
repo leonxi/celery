@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var validator = require('validator');
 var models = require('../models');
 var TimeSheetModel = models.TimeSheet;
 var TimeSheet = require('../proxy').TimeSheet;
